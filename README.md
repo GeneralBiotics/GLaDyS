@@ -5,8 +5,7 @@
 
 This project seeks to provide the core functionality for logging study
 participant data. It is written as a simple, stand-alone application
-to simply security concerns potentially associated with performing
-product studies.
+to simplify security concerns associated with product studies.
 
 ## Usage
 
