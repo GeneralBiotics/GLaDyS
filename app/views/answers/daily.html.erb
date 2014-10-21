@@ -1,0 +1,27 @@
+<div role="main" data-role="page">
+  <div class="ui-content">
+    <h1>Daily Questions</h1>
+
+    <% @questions.each do |q| %>
+      <%= render :partial => "question_questions[:type]" %>
+    <% end %>
+
+    <label for="question_1">Question 1:</label>
+    <input type="text" name="questions[1][value]" id="question_1" placeholder="Answer" value="">
+
+    <label for="select-native-1">Native select:</label>
+    <select name="select-native-1" id="select-native-1">
+      <option value="small">One</option>
+      <option value="medium">Two</option>
+      <option value="large">Three</option>
+    </select>
+
+    <label for="flip-1">Flip toggle:</label>
+    <select name="flip-1" id="flip-1" data-role="slider">
+      <option value="false">False</option>
+      <option value="true">True</option>
+    </select>
+
+    <button type="submit" id="submit-5" class="ui-shadow ui-btn ui-corner-all ui-mini">Submit</button>
+  </div>
+</div>

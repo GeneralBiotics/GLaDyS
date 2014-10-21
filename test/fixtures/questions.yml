@@ -1,0 +1,30 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+
+one:
+  id: 1
+  kind: :double
+  required: false
+  question_text: What is your current weight in pounds?
+  detailed_description: If possible, please check your weight now using a normal household scale.
+
+two:
+  id: 2
+  kind: :select
+  required: true
+  question_text: What is the chance a randomly chosen answer to this question will
+    be correct?
+  options_for_select:
+  - 25%
+  - 50%
+  - 60%
+  - 25%
+
+three:
+  id: 3
+  kind: :boolean
+  required: true
+  question_text: Is your answer false?
