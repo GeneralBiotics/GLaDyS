@@ -16,6 +16,13 @@ class AnswerTest < ActiveSupport::TestCase
     assert "218", a.value
   end
 
+  test "you can only answer questions once" do
+    t = token
+
+    assert t.answers.mark!(questions(:one), "218").valid?
+    assert !t.answers.mark!(questions(:one), "218").valid?
+  end
+
   test "double validation" do
     ["218", "7", "0", "218.711"].each do |e|
       assert token.answers.mark!(questions(:one), e).valid?
