@@ -1,9 +1,11 @@
-# GLaDyS - high security logging for scientific studies
+# GLaDyS
+
+high security questionnaires for scientific studies
 
 *Note: this codebase is under rapid development. Please check back
  in the near future if you are interested in using this project for your data collection needs.*
 
-This project seeks to provide the core functionality for logging study
+This project seeks to provide the core functionality for recording
 participant data. It is written as a simple, stand-alone application
 to simplify security concerns associated with product studies.
 
