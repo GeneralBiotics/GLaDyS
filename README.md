@@ -1,4 +1,4 @@
-# GLaDys - high security logging for scientific studies
+# GLaDyS - high security logging for scientific studies
 
 *Note: this codebase is under rapid development. Please check back
  in the near future if you are interested in using this project for your data collection needs.*
