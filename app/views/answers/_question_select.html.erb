@@ -1,0 +1,5 @@
+<select name="questions[<%= q.id %>]" id="question_<%= q.id %>">
+  <% q.options_for_select.each do |e| %>
+    <option value="<%= e %>" <%= v == e ? "selected" : "" %>><%= e %></option>
+  <% end %>
+</select>

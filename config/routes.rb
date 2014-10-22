@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'answers#daily', :token => 'testing'
+  root 'answers#demo'
 
-  get 'quetions/:token' => 'answers#daily'
-  post 'quetions/:token' => 'answers#daily'
-  get 'quetions/thanks' => 'answers#thanks'
+  get '/d/:token' => 'answers#daily'
+  post '/mark/:token' => 'answers#mark'
+  get '/thanks' => 'answers#thanks'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

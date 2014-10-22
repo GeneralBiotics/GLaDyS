@@ -1,0 +1,4 @@
+<select name="questions[<%= q.id %>]" id="question_<%= q.id %>" data-role="slider">
+  <option value="false" <%= v == "false" ? "selected" : "" %>>False</option>
+  <option value="true" <%= v == "true" ? "selected" : "" %>>True</option>
+</select>
