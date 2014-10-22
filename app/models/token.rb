@@ -30,6 +30,10 @@ class Token < ActiveRecord::Base
   before_update :block_action
   before_destroy :block_action
 
+  def all_questions_answered?
+    (Question.all - answers.all.map{|e| e.question}).length == 0
+  end
+
   private
   def init_uuid
     self.value ||= SecureRandom.uuid

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get '/d/:token' => 'answers#daily'
   post '/mark/:token' => 'answers#mark'
-  get '/thanks' => 'answers#thanks'
+  get '/thanks/:token' => 'answers#thanks'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
