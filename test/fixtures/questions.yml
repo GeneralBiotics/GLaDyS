@@ -27,4 +27,4 @@ three:
   id: 3
   kind: :boolean
   required: true
-  question_text: Is your answer false?
+  question_text: Do you answer no?
