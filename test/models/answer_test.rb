@@ -19,8 +19,12 @@ class AnswerTest < ActiveSupport::TestCase
   test "you can only answer questions once" do
     t = token
 
-    assert t.answers.mark!(questions(:one), "218").valid?
-    assert !t.answers.mark!(questions(:one), "218").valid?
+    a = t.answers.mark!(questions(:one), "218")
+    assert a.id
+
+    a2 = t.answers.mark!(questions(:one), "216")
+    assert_equal a.id, a2.id
+    assert_equal "216", a2.value
   end
 
   test "double validation" do
