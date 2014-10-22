@@ -1,14 +1,20 @@
+<script>
+  var rules = {};
+</script>
+
 <div role="main" data-role="page">
   <div class="ui-content">
     <h1>Daily Questions</h1>
 
-    <form method="POST" action="/mark/<%= @token.value %>">
+    <form id="daily_form" method="POST" action="/mark/<%= @token.value %>">
 
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 
       <% @questions.each do |q| %>
-        <label for="question_<%= q.id %>"><%= q.question_text %></label>
-        <%= render partial: "question_#{q.kind}", locals: {q: q, v: answer_for_question(q)} %>
+        <p class="form_group">
+          <label for="question_<%= q.id %>"><%= q.question_text %></label>
+          <%= render partial: "question_#{q.kind}", locals: {q: q, v: answer_for_question(q)} %>
+        </p>
       <% end %>
 
       <button type="submit" id="submit" class="ui-shadow ui-btn ui-corner-all">Submit</button>
@@ -17,3 +23,12 @@
 
   </div>
 </div>
+
+<script>
+  $("#daily_form").validate({
+    rules: rules,
+    errorPlacement: function(error, element) {
+      error.insertAfter($("label[for=" + $(element).attr("id") + "]"));
+    }
+  });
+</script>
