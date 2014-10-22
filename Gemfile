@@ -40,8 +40,16 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :test do
+  gem 'mocha'
+end
+
+# for SMS notification
+gem 'twilio-ruby', '~> 3.12'
 
 # heroku stuffs
-gem 'rails_12factor', group: :production
-ruby '2.1.2'
-gem 'unicorn'
+group :production do
+  gem 'rails_12factor'
+  ruby '2.1.2'
+  gem 'unicorn'
+end
