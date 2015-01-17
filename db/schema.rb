@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20141021000051) do
     t.string   "contact_method"
     t.string   "email"
     t.string   "phone_number"
+    t.boolean  "completed",       default: false
     t.boolean  "drop_out",        default: false
     t.text     "drop_out_reason"
     t.datetime "created_at"
@@ -36,8 +37,10 @@ ActiveRecord::Schema.define(version: 20141021000051) do
   end
 
   create_table "questions", force: true do |t|
-    t.string   "kind"
+    t.string   "frequency"
+    t.string   "format"
     t.boolean  "required"
+    t.integer  "ordering"
     t.text     "question_text"
     t.text     "detailed_description"
     t.text     "options_for_select"
@@ -46,6 +49,8 @@ ActiveRecord::Schema.define(version: 20141021000051) do
   end
 
   create_table "studies", force: true do |t|
+    t.integer  "days"
+    t.string   "halting_param"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

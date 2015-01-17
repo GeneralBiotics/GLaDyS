@@ -13,7 +13,7 @@
       <% @questions.each do |q| %>
         <p class="form_group">
           <label for="question_<%= q.id %>"><%= q.question_text %></label>
-          <%= render partial: "question_#{q.kind}", locals: {q: q, v: answer_for_question(q)} %>
+          <%= render partial: "question_#{q.format}", locals: {q: q, v: answer_for_question(q)} %>
         </p>
       <% end %>
 

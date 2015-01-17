@@ -9,12 +9,12 @@ class QuestionTest < ActiveSupport::TestCase
 
   test "questions can't be updated" do
     q = questions(:one)
-    assert_equal "double", q.kind
+    assert_equal "double", q.format
 
-    q.kind = :test
+    q.format = :test
     assert !q.save
     q.reload
 
-    assert_equal "double", q.kind
+    assert_equal "double", q.format
   end
 end

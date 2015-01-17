@@ -6,14 +6,16 @@
 
 one:
   id: 1
-  kind: :double
+  frequency: daily
+  format: :double
   required: false
   question_text: What is your current weight in pounds?
   detailed_description: If possible, please check your weight now using a normal household scale.
 
 two:
   id: 2
-  kind: :select
+  frequency: daily
+  format: :select
   required: true
   question_text: What is the chance a randomly chosen answer to this question will
     be correct?
@@ -25,6 +27,7 @@ two:
 
 three:
   id: 3
-  kind: :boolean
+  frequency: daily
+  format: :boolean
   required: true
   question_text: Do you answer no?
