@@ -18,7 +18,7 @@ class Answer < ActiveRecord::Base
   end
 
   def answer_matches_format
-    self.send("answer_matches_#{question.kind}_format")
+    self.send("answer_matches_#{question.format}_format")
   end
 
   def answer_matches_double_format

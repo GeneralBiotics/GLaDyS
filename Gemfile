@@ -50,6 +50,6 @@ gem 'twilio-ruby', '~> 3.12'
 # heroku stuffs
 group :production do
   gem 'rails_12factor'
-  ruby '2.1.2'
+  ruby '2.1.3'
   gem 'unicorn'
 end
