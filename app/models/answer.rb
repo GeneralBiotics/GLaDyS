@@ -5,11 +5,18 @@ class Answer < ActiveRecord::Base
 
   validates_uniqueness_of :token_id, scope: :question_id
 
+  validate :participant_is_active
   validate :answer_matches_format
   before_update :block_old_updates
   before_destroy :block_action
 
   private
+  def participant_is_active
+    unless participant.active?
+      errors.add(:participant, "must be active")
+    end
+  end
+
   def answer_matches_format
     self.send("answer_matches_#{question.kind}_format")
   end

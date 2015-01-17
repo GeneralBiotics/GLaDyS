@@ -2,6 +2,15 @@ require 'test_helper'
 
 class AnswerTest < ActiveSupport::TestCase
 
+  def setup
+    # bypass the before_update filter
+    Participant.where('id = ?', participants(:one).id).update_all(
+      completed: false,
+      drop_out: false,
+      drop_out_reason: nil
+    )
+  end
+
   def token
     participants(:one).tokens.create
   end
@@ -87,4 +96,23 @@ class AnswerTest < ActiveSupport::TestCase
     a.value = "false"
     assert !a.save
   end
+
+  test "completed users can not change answers" do
+    a = token.answers.mark!(questions(:three), "true")
+    assert a.id
+
+    a.participant.completed = true
+    a.value = "false"
+    assert !a.save
+  end
+
+  test "dropped out users can not change answers" do
+    a = token.answers.mark!(questions(:three), "true")
+    assert a.id
+
+    a.participant.drop_out = true
+    a.value = "false"
+    assert !a.save
+  end
+
 end

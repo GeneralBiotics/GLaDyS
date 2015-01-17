@@ -7,6 +7,8 @@ class CreateParticipants < ActiveRecord::Migration
       t.string :email
       t.string :phone_number
 
+      t.boolean :completed, default: false
+
       t.boolean :drop_out, default: false
       t.text :drop_out_reason
 
