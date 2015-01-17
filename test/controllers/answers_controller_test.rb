@@ -24,7 +24,6 @@ class AnswersControllerTest < ActionController::TestCase
   test "incomplete marking sends you back to the daily questions list" do
     post :mark, :token => @token.value
     assert_redirected_to(:action => :daily, :token => @token.value)
-#    assert_redirected_to(:action => :thanks, :token => @token.value)
   end
 
   test "complete marking sends you to the thank you page" do
