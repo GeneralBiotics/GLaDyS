@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
 
   def daily
     @previous_answers = @token.answers
-    @questions = Question.all
+    @questions = Question.daily
   end
 
   def mark
@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
         @token.answers.mark!(id, v)
       end
 
-      if @token.valid? && @token.all_questions_answered?
+      if @token.valid? && @token.all_questions_answered?(Question.daily)
         redirect_to "/thanks/#{@token.value}"
         return
       end

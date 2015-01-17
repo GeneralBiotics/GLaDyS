@@ -22,7 +22,7 @@ class TokensTest < ActiveSupport::TestCase
 
   test "knows if all questions have been answered with this token" do
     t = participants(:one).tokens.create
-    assert !t.all_questions_answered?
+    assert !t.all_questions_answered?(Question.all)
 
     Question.all.each do |e|
       if e.options_for_select
@@ -32,6 +32,6 @@ class TokensTest < ActiveSupport::TestCase
         t.answers.mark!(e, "false")
       end
     end
-    assert t.all_questions_answered?
+    assert t.all_questions_answered?(Question.all)
   end
 end
